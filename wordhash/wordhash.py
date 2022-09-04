@@ -61,7 +61,7 @@ def wordhash(data: bytes) -> str:
     return get_wordhash(data, words, DEFAULT_HASH_LENGTH)
 
 
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "-w",
@@ -86,8 +86,9 @@ if __name__ == "__main__":
 
     wordlist = get_words(wordlist_path)
     digest = get_digest(data_path, args.string)
-    print(hash(args.string))
-    print(hash(b"the quick brown fox jumps over the lazy dog"))
-    print(digest, len(wordlist), args.length)
-    wordhash = get_wordhash(digest, wordlist, args.length)
-    print(wordhash)
+    res = get_wordhash(digest, wordlist, args.length)
+    print(res)
+
+
+if __name__ == "__main__":
+    main()
