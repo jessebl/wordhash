@@ -1,7 +1,7 @@
 import unittest
 import pathlib
 import hashlib
-from wordhash import DEFAULT_WORDLIST_PATH, get_words, get_wordhash
+from wordhash import DEFAULT_WORDLIST_PATH, get_words, get_wordencoding
 import typing as t
 
 
@@ -18,7 +18,7 @@ class TestGetWordHash(unittest.TestCase):
         digest = hasher.digest(hashlength)
         wordlist: t.List[str] = get_words(DEFAULT_WORDLIST_PATH)
         expected = "BackstabAuthenticDialDivingModifiedAbridge"
-        actual = get_wordhash(digest, wordlist, hashlength)
+        actual = get_wordencoding(digest, wordlist, hashlength)
         self.assertEqual(expected, actual)
 
 
